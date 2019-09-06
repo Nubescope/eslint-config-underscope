@@ -19,3 +19,19 @@ $ yarn add @underscope/eslint-config
 }
 
 ```
+
+## Integrating with VSCode
+
+Open the command pallete by pressing CMD + SHIFT + P and type "Open Settings (JSON)", then make sure you have the following config:
+
+```json
+{
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "editor.formatOnSave": true,
+  "prettier.disableLanguages": ["js"],
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true
+}
+```
