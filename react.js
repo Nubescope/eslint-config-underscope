@@ -20,8 +20,8 @@ module.exports = {
   rules: {
     'react/display-name': OFF,
     'react/no-multi-comp': [WARNING, { 'ignoreStateless': true }],
-    'react/no-unused-prop-types': OFF,
-    'react/prop-types': OFF,
+    'react/no-unused-prop-types': ERROR,
+    'react/prop-types': ERROR,
     'react/jsx-filename-extension': OFF,
     'react/jsx-uses-react': ERROR,
     'react/jsx-uses-vars': ERROR,
