@@ -26,6 +26,7 @@ module.exports = {
     'react/jsx-uses-react': ERROR,
     'react/jsx-uses-vars': ERROR,
     'react/react-in-jsx-scope': ERROR,
+    "react/jsx-curly-brace-presence": [ERROR, { props: "never", children: "never" }],
     'react/destructuring-assignment': [OFF, 'always'],
     'react-hooks/rules-of-hooks': ERROR,
     'react-hooks/exhaustive-deps': WARNING,
