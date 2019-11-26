@@ -35,6 +35,7 @@ module.exports = {
     'curly': [ERROR, 'all'],
     'spaced-comment': [ERROR, 'always'],
     'no-use-before-define': OFF,
+    'no-unused-vars': WARNING,
     'one-var': [ERROR, { 'uninitialized': 'always', 'initialized': 'never' }],
     'object-curly-newline': OFF,
     'operator-linebreak': OFF,
@@ -47,7 +48,7 @@ module.exports = {
       { 'blankLine': 'always', 'prev': 'import', 'next': '*' },
       { 'blankLine': 'any', 'prev': 'import', 'next': 'import' }
     ],
-    'no-console': ERROR,
+    'no-console': WARNING,
 
     'promise/prefer-await-to-then': WARNING,
 
