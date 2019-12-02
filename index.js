@@ -19,7 +19,6 @@ module.exports = {
     'react-native/no-raw-text': ERROR,
     'react-hooks/rules-of-hooks': ERROR,
     'react-hooks/exhaustive-deps': WARNING,
-    'no-unused-vars': ERROR,
   },
   settings: {
     'import/resolver': {

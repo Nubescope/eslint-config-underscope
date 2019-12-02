@@ -35,7 +35,7 @@ module.exports = {
     'curly': [ERROR, 'all'],
     'spaced-comment': [ERROR, 'always'],
     'no-use-before-define': OFF,
-    'no-unused-vars': WARNING,
+    'no-unused-vars': ERROR,
     'one-var': [ERROR, { 'uninitialized': 'always', 'initialized': 'never' }],
     'object-curly-newline': OFF,
     'operator-linebreak': OFF,
