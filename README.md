@@ -12,7 +12,7 @@ $ yarn add @underscope/eslint-config
 
 ```
 {
-    "extends" "@underscope/eslint-config",
+    "extends": "@underscope/eslint-config",
     "rules" {
         ...
     }
