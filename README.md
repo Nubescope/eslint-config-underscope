@@ -30,8 +30,10 @@ Open the command pallete by pressing CMD + SHIFT + P and type "Open Settings (JS
     "editor.formatOnSave": false
   },
   "editor.formatOnSave": true,
-  "prettier.disableLanguages": ["js"],
-  "eslint.autoFixOnSave": true,
-  "eslint.alwaysShowStatus": true
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.alwaysShowStatus": true,
+  "prettier.disableLanguages": ["js"]
 }
 ```
