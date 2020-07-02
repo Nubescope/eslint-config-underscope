@@ -18,11 +18,16 @@ module.exports = {
     es6: true,
     node: true,
   },
+  globals: {
+    __DEV__: true,
+    Promise: true,
+  },
   plugins: [
     'babel',
     'jest',
     'prettier',
     'import',
+    'simple-import-sort',
   ],
   parserOptions: {
     sourceType: 'module',
@@ -48,7 +53,7 @@ module.exports = {
       { 'blankLine': 'always', 'prev': 'import', 'next': '*' },
       { 'blankLine': 'any', 'prev': 'import', 'next': 'import' }
     ],
-    'no-console': WARNING,
+    'no-console': ERROR,
 
     'promise/prefer-await-to-then': WARNING,
 
@@ -56,5 +61,24 @@ module.exports = {
     'import/no-dynamic-require': OFF,
     'import/no-unresolved': ERROR,
     'import/prefer-default-export': OFF,
+    'import/no-extraneous-dependencies': OFF,
+
+    'simple-import-sort/sort': [
+      'warn',
+      {
+        groups: [
+          // Node.js builtins. You could also generate this regex if you use a `.js` config.
+          [`^(${require('module').builtinModules.join('|')})(/|$)`],
+          // Packages. `react` related packages come first.
+          ['^react', '^@?\\w'],
+          // Root imports with babel-plugin-root-import (~/).
+          // Parent imports. Put `..` last.
+          // Other relative imports. Put same-folder imports and `.` last.
+          ['^~/', '^\\.\\.(?!/?$)', '^\\.\\./?$', '^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+          // Side effect imports.
+          ['^\\u0000'],
+        ],
+      },
+    ],
   },
 };

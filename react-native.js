@@ -15,6 +15,7 @@ module.exports = {
   rules: {
     'react-native/split-platform-components': OFF,
     'react-native/no-inline-styles': WARNING,
+    'react-native/no-unused-styles': ERROR,
     'react-native/no-color-literals': WARNING,
     'react-native/no-raw-text': ERROR,
     'react-hooks/rules-of-hooks': ERROR,
