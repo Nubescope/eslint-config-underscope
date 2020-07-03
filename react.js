@@ -4,7 +4,7 @@ const ERROR = 2;
 
 module.exports = {
   extends: [
-    './node.js',
+    './base.js',
     'plugin:react/recommended',
     'prettier/react',
   ],
@@ -26,10 +26,11 @@ module.exports = {
     'react/jsx-uses-react': ERROR,
     'react/jsx-uses-vars': ERROR,
     'react/react-in-jsx-scope': ERROR,
-    "react/jsx-curly-brace-presence": [ERROR, { props: "never", children: "never" }],
+    'react/jsx-curly-brace-presence': [ERROR, { props: "never", children: "never" }],
     'react/destructuring-assignment': [OFF, 'always'],
     'react-hooks/rules-of-hooks': ERROR,
     'react-hooks/exhaustive-deps': WARNING,
+    'react/no-did-update-set-state': OFF,
   },
   settings: {
     react: {
