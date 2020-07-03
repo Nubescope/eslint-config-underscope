@@ -81,30 +81,6 @@ module.exports = {
   },
    overrides: [
     {
-      files: ['*.js', '*.jsx'],
-      parser: 'babel-eslint',
-      plugins: ['flowtype'],
-      extends: ['plugin:flowtype/recommended', 'prettier/flowtype'],
-      settings: {
-        'import/extensions': [...JS, ...TS],
-        'import/resolver': {
-          node: {
-            extensions: [...JS, ...TS],
-          },
-        },
-      },
-      rules: {
-        'flowtype/no-weak-types': WARNING,
-        'flowtype/require-parameter-type': OFF,
-        'flowtype/require-return-type': [
-          OFF,
-          'always',
-          { annotateUndefined: 'never' },
-        ],
-        'flowtype/require-valid-file-annotation': ERROR,
-      },
-    },
-    {
       files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       plugins: ['@typescript-eslint/eslint-plugin'],
