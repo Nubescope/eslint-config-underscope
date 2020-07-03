@@ -4,7 +4,7 @@ const ERROR = 2;
 
 module.exports = {
   extends: [
-    './node.js',
+    './base.js',
     'plugin:react/recommended',
     'prettier/react',
   ],

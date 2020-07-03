@@ -2,6 +2,8 @@ const restrictedGlobals = require('eslint-restricted-globals')
 const OFF = 0
 const WARNING = 1
 const ERROR = 2
+const JS = ['.js', '.jsx']
+const TS = ['.ts', '.tsx', '.d.ts']
 
 module.exports = {
   extends: [
@@ -17,10 +19,6 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
-  },
-  globals: {
-    __DEV__: true,
-    Promise: true,
   },
   plugins: [
     'babel',
@@ -81,4 +79,52 @@ module.exports = {
       },
     ],
   },
+   overrides: [
+    {
+      files: ['*.js', '*.jsx'],
+      parser: 'babel-eslint',
+      plugins: ['flowtype'],
+      extends: ['plugin:flowtype/recommended', 'prettier/flowtype'],
+      settings: {
+        'import/extensions': [...JS, ...TS],
+        'import/resolver': {
+          node: {
+            extensions: [...JS, ...TS],
+          },
+        },
+      },
+      rules: {
+        'flowtype/no-weak-types': WARNING,
+        'flowtype/require-parameter-type': OFF,
+        'flowtype/require-return-type': [
+          OFF,
+          'always',
+          { annotateUndefined: 'never' },
+        ],
+        'flowtype/require-valid-file-annotation': ERROR,
+      },
+    },
+    {
+      files: ['*.ts', '*.tsx'],
+      parser: '@typescript-eslint/parser',
+      plugins: ['@typescript-eslint/eslint-plugin'],
+      settings: {
+        'import/extensions': [...JS, ...TS],
+        'import/parsers': {
+          '@typescript-eslint/parser': TS,
+        },
+        'import/resolver': {
+          node: {
+            extensions: [...JS, ...TS],
+          },
+        },
+      },
+      rules: {
+        '@typescript-eslint/no-unused-vars': ERROR,
+        '@typescript-eslint/prefer-optional-chain': ERROR,
+        'no-dupe-class-members': OFF,
+        'no-unused-vars': OFF,
+      },
+    },
+  ],
 };

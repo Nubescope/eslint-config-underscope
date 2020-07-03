@@ -1,6 +1,13 @@
 const OFF = 0;
 const WARNING = 1;
 const ERROR = 2;
+const JS = ['.js', '.jsx']
+const TS = ['.ts', '.tsx', '.d.ts']
+const ANDROID_JS = [ '.android.js', '.android.jsx']
+const ANDROID_TS = ['.android.ts', '.android.tsx', '.android.d.ts']
+const IOS_JS = ['.ios.js', '.ios.js']
+const IOS_TS = ['.ios.ts', '.ios.tsx', '.ios.d.ts']
+const ALL = [ ...JS, ...TS, ...ANDROID_JS, ...ANDROID_TS, ...IOS_JS, ...IOS_TS ]
 
 module.exports = {
   extends: [
@@ -21,14 +28,31 @@ module.exports = {
     'react-hooks/rules-of-hooks': ERROR,
     'react-hooks/exhaustive-deps': WARNING,
   },
-  settings: {
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.android.js', '.ios.js', '.native.js'],
+  overrides: [
+    {
+      files: ['*.js', '*.jsx'],
+      settings: {
+        'import/extensions': ALL,
+        'import/resolver': {
+          node: {
+            extensions: ALL,
+          },
+        },
       },
     },
-    react: {
-      version: 'detect',
+    {
+      files: ['*.ts', '*.tsx'],
+      settings: {
+        'import/extensions': ALL,
+        'import/parsers': {
+          '@typescript-eslint/parser': [ ...TS, ...ANDROID_TS, ...IOS_TS ],
+        },
+        'import/resolver': {
+          node: {
+            extensions: ALL,
+          },
+        },
+      },
     },
-  },
+  ],
 };
